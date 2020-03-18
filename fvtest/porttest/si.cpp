@@ -24,6 +24,7 @@
  * $Revision: 1.64 $
  * $Date: 2012-12-05 05:27:54 $
  */
+
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -164,10 +165,16 @@ TEST(PortSysinfoTest, sysinfo_test0)
 		outputErrorMessage(PORTTEST_ERROR_ARGS, "  Executable name test failed: (rc = %d).\n", rc);
 		goto done;
 	}
+#if defined(OMR_OS_WINDOWS)
+	for (char* cursor = argv0; *cursor != '\0'; ++cursor) {
+		if (*cursor == '/') {
+			*cursor = '\\';
+		}
+	}
+#endif
 
-	if (validate_executable_name(argv0, 		 /* expected */
-								 executable_name /* found through API */
-								)
+	if (validate_executable_name(argv0, /* expected */
+	executable_name)/* found through API */
 	) {
 		portTestEnv->log("Executable name test passed.\n"
 					  "Expected (argv0=%s).\n  Found=%s.\n",
