@@ -908,9 +908,9 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 		rc = omrsysinfo_set_limit(OMRPORT_RESOURCE_FILE_DESCRIPTORS, originalHardLimit);
 		if (0 != rc) {
 			outputErrorMessage(PORTTEST_ERROR_ARGS, "omrsysinfo_set_limit soft = hard FAILED rc=%d\n", rc);
-			outputErrorMessage("The error message is ", PORTTEST_ERROR_ARGS);
-			outputErrorMessage("The OMRPORT_RESOURCE_FILE_DESCRIPTORS is %d\n", OMRPORT_RESOURCE_FILE_DESCRIPTORS);
-			outputErrorMessage("The originalHardLimit is %d\n", originalHardLimit);
+			outputErrorMessage(PORTTEST_ERROR_ARGS, "The error message is ");
+			outputErrorMessage(PORTTEST_ERROR_ARGS, "The OMRPORT_RESOURCE_FILE_DESCRIPTORS is %d\n", OMRPORT_RESOURCE_FILE_DESCRIPTORS);
+			outputErrorMessage(PORTTEST_ERROR_ARGS, "The originalHardLimit is %d\n", originalHardLimit);
 			reportTestExit(OMRPORTLIB, testName);
 			return;
 		}
