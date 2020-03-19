@@ -3340,7 +3340,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 	default:
 		break;
 	}
-
+printf("The result of rc right now is %d\n", rc);
 	if (0 == rc) {
 		switch (resourceRequested) {
 		case OMRPORT_RESOURCE_FILE_DESCRIPTORS:
