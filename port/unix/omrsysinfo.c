@@ -3415,6 +3415,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 	}
 
 	Trc_PRT_sysinfo_set_limit_Exit(rc);
+	printf("Right before returning, the value of rc is %d\n", rc);
 	return rc;
 }
 
