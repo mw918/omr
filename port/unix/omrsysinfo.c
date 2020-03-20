@@ -3340,7 +3340,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 	default:
 		break;
 	}
-
+printf("Right before the first bracketed if statement, the value of rc is %d\n", rc);
 	if (0 == rc) {
 		switch (resourceRequested) {
 		case OMRPORT_RESOURCE_FILE_DESCRIPTORS:
@@ -3362,6 +3362,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 				lim.rlim_max = limit;
 			} else {
 #if defined(OSX)
+printf("Right in the first OSX, the value of rc is %d\n", rc);
 				/* MacOS doesn't allow the soft file limit to be unlimited */
 				if ((OMRPORT_RESOURCE_FILE_DESCRIPTORS == resourceRequested)
 						&& (RLIM_INFINITY == limit)) {
@@ -3393,6 +3394,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 
 		case OMRPORT_RESOURCE_CORE_FLAGS: {
 #if defined(AIXPPC)
+printf("Right in the first AIXPPC, the value of rc is %d\n", rc);
 			struct vario myvar;
 
 			myvar.v.v_fullcore.value = limit;
