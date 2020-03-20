@@ -3304,7 +3304,6 @@ omrsysinfo_get_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 uint32_t
 omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, uint64_t limit)
 {
-	uint32_t rc = 0;
 	uint32_t hardLimitRequested = OMRPORT_LIMIT_HARD == (resourceID & OMRPORT_LIMIT_HARD);
 	uint32_t resourceRequested = resourceID & ~OMRPORT_LIMIT_HARD;
 	struct rlimit lim = {0, 0};
@@ -3341,7 +3340,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 	default:
 		break;
 	}
-printf("The result of rc right now is %d\n", rc);
+
 	if (0 == rc) {
 		switch (resourceRequested) {
 		case OMRPORT_RESOURCE_FILE_DESCRIPTORS:
@@ -3416,7 +3415,6 @@ printf("The result of rc right now is %d\n", rc);
 	}
 
 	Trc_PRT_sysinfo_set_limit_Exit(rc);
-	printf("The result of rc right before returning is %d\n", rc);
 	return rc;
 }
 
