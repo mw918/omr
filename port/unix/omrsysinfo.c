@@ -3304,7 +3304,6 @@ omrsysinfo_get_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 uint32_t
 omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, uint64_t limit)
 {
-	/*printf("The result of resourceID right now is %d and the value of limit is %d\n", resourceID, limit);*/
 	uint32_t rc = 0;
 	uint32_t hardLimitRequested = OMRPORT_LIMIT_HARD == (resourceID & OMRPORT_LIMIT_HARD);
 	uint32_t resourceRequested = resourceID & ~OMRPORT_LIMIT_HARD;
