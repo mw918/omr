@@ -3371,12 +3371,14 @@ printf("Right in the first OSX, the value of rc is %d\n", rc);
 					int name[] = {CTL_KERN, KERN_MAXFILESPERPROC};
 					rc = sysctl(name, 2, &maxFiles, &resultSize, NULL, 0);
 					if (-1 == rc) {
+						printf("Right in the OSX, we have an error and the value of rc is %d\n", rc);
 						portLibrary->error_set_last_error(portLibrary, errno, findError(errno));
 						Trc_PRT_sysinfo_setrlimit_error(resource, limit, findError(errno));
 					} else {
 						limit = maxFiles;
 					}
 				}
+				printf("Right in the end of OSX, the value of rc is %d\n", rc);
 #endif
 				lim.rlim_cur = limit;
 			}
