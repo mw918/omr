@@ -3381,7 +3381,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 			}
 			printf("Right before setrlimit, the value of rc is %d\n", rc);
 			rc = setrlimit(resource, &lim);
-			printf("Right at the beginning of -1 == rc, the value of rc is %d\n", rc);
+			printf("Right at the beginning of -1 == rc, the value of rc is %d, the value of resource is %d, and the value of &lim is \n", rc, resource, &lim);
 			if (-1 == rc) {
 				portLibrary->error_set_last_error(portLibrary, errno, findError(errno));
 				Trc_PRT_sysinfo_setrlimit_error(resource, limit, findError(errno));
