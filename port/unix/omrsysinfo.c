@@ -3340,7 +3340,6 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 	default:
 		break;
 	}
-printf("Right before the first bracketed if statement, the value of rc is %d\n", rc);
 	if (0 == rc) {
 		switch (resourceRequested) {
 		case OMRPORT_RESOURCE_FILE_DESCRIPTORS:
@@ -3362,7 +3361,6 @@ printf("Right before the first bracketed if statement, the value of rc is %d\n",
 				lim.rlim_max = limit;
 			} else {
 #if defined(OSX)
-printf("Right in the first OSX, the value of rc is %d\n", rc);
 				/* MacOS doesn't allow the soft file limit to be unlimited */
 				if ((OMRPORT_RESOURCE_FILE_DESCRIPTORS == resourceRequested)
 						&& (RLIM_INFINITY == limit)) {
@@ -3371,7 +3369,6 @@ printf("Right in the first OSX, the value of rc is %d\n", rc);
 					int name[] = {CTL_KERN, KERN_MAXFILESPERPROC};
 					rc = sysctl(name, 2, &maxFiles, &resultSize, NULL, 0);
 					if (-1 == rc) {
-						printf("Right in the OSX, we have an error and the value of rc is %d\n", rc);
 						portLibrary->error_set_last_error(portLibrary, errno, findError(errno));
 						Trc_PRT_sysinfo_setrlimit_error(resource, limit, findError(errno));
 					} else {
@@ -3382,7 +3379,7 @@ printf("Right in the first OSX, the value of rc is %d\n", rc);
 #endif
 				lim.rlim_cur = limit;
 			}
-
+			printf("Right before setrlimit, the value of rc is %d\n", rc);
 			rc = setrlimit(resource, &lim);
 			printf("Right at the beginning of -1 == rc, the value of rc is %d\n", rc);
 			if (-1 == rc) {
