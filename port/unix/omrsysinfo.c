@@ -3415,6 +3415,7 @@ printf("The result of rc right now is %d\n", rc);
 	}
 
 	Trc_PRT_sysinfo_set_limit_Exit(rc);
+	printf("The result of rc right before returning is %d\n", rc);
 	return rc;
 }
 
