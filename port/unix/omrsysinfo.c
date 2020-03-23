@@ -3385,6 +3385,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 			if (-1 == rc) {
 				portLibrary->error_set_last_error(portLibrary, errno, findError(errno));
 				Trc_PRT_sysinfo_setrlimit_error(resource, limit, findError(errno));
+				fprintf(stderr, "Value of errno: %d\n", errno);
 			}
 #else /* !defined(OMRZTPF) */
 			rc = OMRPORT_LIMIT_UNKNOWN;
