@@ -3386,7 +3386,7 @@ omrsysinfo_set_limit(struct OMRPortLibrary *portLibrary, uint32_t resourceID, ui
 				portLibrary->error_set_last_error(portLibrary, errno, findError(errno));
 				Trc_PRT_sysinfo_setrlimit_error(resource, limit, findError(errno));
 				fprintf(stderr, "Michael's experimental verified value of errno: %d\n", errno);
-				fprintf(stderr, "The error message found is: %s\n", strerror( errnum ));
+				fprintf(stderr, "The error message found is: %s\n", strerror( errno ));
 			}
 #else /* !defined(OMRZTPF) */
 			rc = OMRPORT_LIMIT_UNKNOWN;
