@@ -25,6 +25,7 @@
  * $Date: 2012-12-05 05:27:54 $
  */
 #include <iostream>
+using namespace std;
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
