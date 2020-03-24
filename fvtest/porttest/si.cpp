@@ -860,8 +860,8 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 	 */
 #if defined(OSX)
   /* the code from above */
+  OMRPORT_ACCESS_FROM_OMRPORT(portTestEnv->getPortLibrary());
   outputErrorMessage(PORTTEST_ERROR_ARGS, "Skipping test: sysinfo_test_sysinfo_set_limit_FILE_DESCRIPTORS: resource limits unsupported on macOS, see issue #1234 for more details");
-  return;
 #else
 	TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_FILE_DESCRIPTORS)
 	{
