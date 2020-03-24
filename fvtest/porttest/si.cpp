@@ -856,7 +856,7 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 	 * with resourceID OMRPORT_RESOURCE_FILE_DESCRIPTORS
 	 *
 	 */
-#if defined(OMR_OS_OSX)
+#if defined(OSX)
   /* the code from above */
   std::cout << "Skipping test: sysinfo_test_sysinfo_set_limit_FILE_DESCRIPTORS: resource limits unsupported on macOS, see issue #1234 for more details\n";
   return;
