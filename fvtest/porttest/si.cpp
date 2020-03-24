@@ -856,6 +856,7 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 	 * with resourceID OMRPORT_RESOURCE_FILE_DESCRIPTORS
 	 *
 	 */
+#if !defined(OSX)
 	TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_FILE_DESCRIPTORS)
 	{
 		OMRPORT_ACCESS_FROM_OMRPORT(portTestEnv->getPortLibrary());
@@ -1027,6 +1028,7 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 
 	reportTestExit(OMRPORTLIB, testName);
 }
+#endif
 
 #if defined(AIXPPC)
 /**
