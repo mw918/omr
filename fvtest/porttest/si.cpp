@@ -858,7 +858,6 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 	 * with resourceID OMRPORT_RESOURCE_FILE_DESCRIPTORS
 	 *
 	 */
-
 	TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_FILE_DESCRIPTORS)
 	{
 		OMRPORT_ACCESS_FROM_OMRPORT(portTestEnv->getPortLibrary());
@@ -922,9 +921,6 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 		rc = omrsysinfo_set_limit(OMRPORT_RESOURCE_FILE_DESCRIPTORS, originalHardLimit);
 		if (0 != rc) {
 			outputErrorMessage(PORTTEST_ERROR_ARGS, "omrsysinfo_set_limit soft = hard FAILED rc=%d\n", rc);
-			outputErrorMessage(PORTTEST_ERROR_ARGS, "The error message is ");
-			outputErrorMessage(PORTTEST_ERROR_ARGS, "The OMRPORT_RESOURCE_FILE_DESCRIPTORS is %d\n", OMRPORT_RESOURCE_FILE_DESCRIPTORS);
-			outputErrorMessage(PORTTEST_ERROR_ARGS, "The originalHardLimit is %d\n", originalHardLimit);
 			reportTestExit(OMRPORTLIB, testName);
 			return;
 		}
@@ -1030,6 +1026,7 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 		reportTestExit(OMRPORTLIB, testName);
 		return;
 	}
+
 	reportTestExit(OMRPORTLIB, testName);
 	#endif
 }
