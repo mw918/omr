@@ -871,11 +871,8 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 		uint64_t currentLimit = 0;
 		const uint64_t descriptorLimit = 256;
 	#if defined(OSX)
-	if(true)
-	{
 	  outputErrorMessage(PORTTEST_ERROR_ARGS, "Skipping test: sysinfo_test_sysinfo_set_limit_FILE_DESCRIPTORS: resource limits unsupported on macOS, see issue #1234 for more details\n");
 	  return;
-	}
 	#else
 		reportTestEntry(OMRPORTLIB, testName);
 
