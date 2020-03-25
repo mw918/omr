@@ -1030,8 +1030,8 @@ TEST(PortSysinfoTest, sysinfo_test_sysinfo_set_limit_CORE_FILE)
 		reportTestExit(OMRPORTLIB, testName);
 		return;
 	}
-	#endif
 	reportTestExit(OMRPORTLIB, testName);
+	#endif
 }
 
 #if defined(AIXPPC)
