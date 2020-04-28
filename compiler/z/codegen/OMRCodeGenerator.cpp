@@ -700,7 +700,7 @@ bool OMR::Z::CodeGenerator::prepareForGRA()
             }
          }
 
-      TR::Linkage *linkage = self()->getS390Linkage();
+      TR::Linkage *linkage = getS390Linkage();
       if (!self()->comp()->getOption(TR_DisableRegisterPressureSimulation))
          {
          for (int32_t i = 0; i < TR_numSpillKinds; i++)
@@ -794,11 +794,11 @@ bool OMR::Z::CodeGenerator::prepareForGRA()
       }
    }
 
-TR::Linkage * OMR::Z::CodeGenerator::getS390Linkage() {return (self()->getLinkage());}
+TR::Linkage * OMR::Z::CodeGenerator::getS390Linkage() {return (getLinkage());}
 
 TR::RealRegister * OMR::Z::CodeGenerator::getStackPointerRealRegister(TR::Symbol *symbol)
    {
-   TR::Linkage *linkage = self()->getS390Linkage();
+   TR::Linkage *linkage = getS390Linkage();
    TR::RealRegister *spReg = linkage->getStackPointerRealRegister();
    return spReg;
    }
@@ -1636,7 +1636,7 @@ OMR::Z::CodeGenerator::prepareRegistersForAssignment()
       // between target addresses (4-byte aligned) and any 8-byte constant data.
       _extentOfLitPool = self()->setEstimatedOffsetForConstantDataSnippets();
 
-      TR::Linkage *s390PrivateLinkage = self()->getS390Linkage();
+      TR::Linkage *s390PrivateLinkage = getS390Linkage();
 
       // Check to see if we need to lock the litpool reg
       if ( self()->isLitPoolFreeForAssignment() )
